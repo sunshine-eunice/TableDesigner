@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.DGViewName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DGViewType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.DGViewWidth = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
-            this.DGViewDecimal = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
-            this.DGViewIndex = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.DGViewNull = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
@@ -43,6 +37,12 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.DGViewName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DGViewType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DGViewWidth = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
+            this.DGViewDecimal = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
+            this.DGViewIndex = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DGViewNull = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -64,42 +64,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(674, 150);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // DGViewName
-            // 
-            this.DGViewName.HeaderText = "Name";
-            this.DGViewName.Name = "DGViewName";
-            this.DGViewName.Width = 120;
-            // 
-            // DGViewType
-            // 
-            this.DGViewType.HeaderText = "Type";
-            this.DGViewType.Name = "DGViewType";
-            // 
-            // DGViewWidth
-            // 
-            this.DGViewWidth.HeaderText = "Width";
-            this.DGViewWidth.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.DGViewWidth.Name = "DGViewWidth";
-            // 
-            // DGViewDecimal
-            // 
-            this.DGViewDecimal.HeaderText = "Decimal";
-            this.DGViewDecimal.Name = "DGViewDecimal";
-            // 
-            // DGViewIndex
-            // 
-            this.DGViewIndex.HeaderText = "Index";
-            this.DGViewIndex.Name = "DGViewIndex";
-            // 
-            // DGViewNull
-            // 
-            this.DGViewNull.HeaderText = "NULL";
-            this.DGViewNull.Name = "DGViewNull";
             // 
             // btnOK
             // 
@@ -127,7 +91,7 @@
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(75, 27);
             this.btnInsert.TabIndex = 3;
-            this.btnInsert.Text = "Add";
+            this.btnInsert.Text = "Insert";
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
@@ -181,6 +145,45 @@
             this.dataGridView2.Size = new System.Drawing.Size(670, 150);
             this.dataGridView2.TabIndex = 0;
             // 
+            // DGViewName
+            // 
+            this.DGViewName.HeaderText = "Name";
+            this.DGViewName.Name = "DGViewName";
+            this.DGViewName.Width = 120;
+            // 
+            // DGViewType
+            // 
+            this.DGViewType.HeaderText = "Type";
+            this.DGViewType.Name = "DGViewType";
+            // 
+            // DGViewWidth
+            // 
+            this.DGViewWidth.HeaderText = "Width";
+            this.DGViewWidth.Maximum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            0});
+            this.DGViewWidth.Name = "DGViewWidth";
+            // 
+            // DGViewDecimal
+            // 
+            this.DGViewDecimal.HeaderText = "Decimal";
+            this.DGViewDecimal.Name = "DGViewDecimal";
+            // 
+            // DGViewIndex
+            // 
+            this.DGViewIndex.HeaderText = "Index";
+            this.DGViewIndex.Name = "DGViewIndex";
+            // 
+            // DGViewNull
+            // 
+            this.DGViewNull.FalseValue = "yes";
+            this.DGViewNull.HeaderText = "NULL";
+            this.DGViewNull.IndeterminateValue = "no";
+            this.DGViewNull.Name = "DGViewNull";
+            this.DGViewNull.TrueValue = "yes";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,12 +216,12 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn DGViewName;
         private System.Windows.Forms.DataGridViewComboBoxColumn DGViewType;
         private DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn DGViewWidth;
         private DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn DGViewDecimal;
         private System.Windows.Forms.DataGridViewComboBoxColumn DGViewIndex;
         private System.Windows.Forms.DataGridViewCheckBoxColumn DGViewNull;
-        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }

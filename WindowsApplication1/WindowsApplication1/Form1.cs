@@ -14,8 +14,7 @@ namespace WindowsApplication1
     {
         public Form1()
         {
-            InitializeComponent();
-            AddAllInputtoDataGridView();
+            InitializeComponent();       
         }
         DataTable dt = new DataTable();
         //int i;
@@ -29,13 +28,15 @@ namespace WindowsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //dataGridView1.ReadOnly = true;
             foreach (DataGridViewColumn col in dataGridView1.Columns) {
                dt.Columns.Add(col.Name);
-                col.DataPropertyName = col.Name;
-            }
+                col.DataPropertyName = col.Name;                
+            }        
 
             DGViewName.MaxInputLength = 10;
 
+            DGViewType.DefaultCellStyle.NullValue = "==Select==";
             DGViewType.Items.Add("Character");
             DGViewType.Items.Add("Currency");
             DGViewType.Items.Add("Numeric");
@@ -50,31 +51,32 @@ namespace WindowsApplication1
             DGViewType.Items.Add("Character (binary)");
             DGViewType.Items.Add("Memo (binary)");
 
+            DGViewIndex.DefaultCellStyle.NullValue = "==Select==";
             DGViewIndex.Items.Add("None");
             DGViewIndex.Items.Add("Ascending");
             DGViewIndex.Items.Add("Descending");
 
             DataRow drLocal = null;
             foreach (DataGridViewRow dr in dataGridView1.Rows)
-            {
+             {
                 drLocal = dt.NewRow();
                 drLocal["DGViewName"] = dr.Cells["DGViewName"].Value;
                 drLocal["DGViewType"] = dr.Cells["DGViewType"].Value;
                 drLocal["DGViewWidth"] = dr.Cells["DGViewWidth"].Value;
                 drLocal["DGViewDecimal"] = dr.Cells["DGViewDecimal"].Value;
                 drLocal["DGViewIndex"] = dr.Cells["DGViewIndex"].Value;
-                drLocal["DGViewNull"] = dr.Cells["DGViewNull"].Value;  
+                drLocal["DGViewNull"] = dr.Cells["DGViewNull"].Value    =   false;         
+                //dr.Cells["DGViewNull"].Value = false;
                 dt.Rows.Add(drLocal);
                 //dataGridView1.DataSource = dt;
-            }
-            //dataGridView1.DataSource = dt;  
+             }
+                dataGridView1.DataSource = dt;  
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
-        {
-                AddAllInputtoDataGridView(); 
+        {        
                 dataGridView1.ReadOnly  =   false;
-                dt.Rows.Add("NewFld","Character","10","0","","false");
+                dt.Rows.Add("NewFld","Character","10","0","","False");
                 dataGridView1.DataSource = dt;
         }
 
@@ -124,23 +126,6 @@ namespace WindowsApplication1
                 }
             }
             MessageBox.Show(s.ToString());         
-        }
-
-        private void AddAllInputtoDataGridView() {
-            DataRow drLocal = null;
-            foreach (DataGridViewRow dr in dataGridView1.Rows)
-            {
-                drLocal = dt.NewRow();
-                drLocal["DGViewName"] = dr.Cells["DGViewName"].Value;
-                drLocal["DGViewType"] = dr.Cells["DGViewType"].Value;
-                drLocal["DGViewWidth"] = dr.Cells["DGViewWidth"].Value;
-                drLocal["DGViewDecimal"] = dr.Cells["DGViewDecimal"].Value;
-                drLocal["DGViewIndex"] = dr.Cells["DGViewIndex"].Value;
-                drLocal["DGViewNull"] = dr.Cells["DGViewNull"].Value;
-                dt.Rows.Add(drLocal);
-                //dataGridView1.DataSource = dt;
-            }
-            return dt;
         }
     } 
  }
