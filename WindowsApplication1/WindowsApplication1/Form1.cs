@@ -32,7 +32,7 @@ namespace WindowsApplication1
             foreach (DataGridViewColumn col in dataGridView1.Columns) {
                dt.Columns.Add(col.Name);
                 col.DataPropertyName = col.Name;                
-            }        
+            }
 
             DGViewName.MaxInputLength = 10;
 
@@ -56,6 +56,14 @@ namespace WindowsApplication1
             DGViewIndex.Items.Add("Ascending");
             DGViewIndex.Items.Add("Descending");
 
+            dt.Columns.Add("NULL",typeof(Boolean));
+
+            dt.Columns["NULL"].DefaultValue = false;
+            dt.Columns["DGViewWidth"].DefaultValue = 0;
+            //DGViewNull.FalseValue = false;
+            //this.dataGridView1.Columns["DGViewNull"].DefaultCellStyle.NullValue = false;
+            //dataGridView1.Columns["DGViewNull"].DefaultCellStyle.NullValue = false;
+
             DataRow drLocal = null;
             foreach (DataGridViewRow dr in dataGridView1.Rows)
              {
@@ -65,10 +73,10 @@ namespace WindowsApplication1
                 drLocal["DGViewWidth"] = dr.Cells["DGViewWidth"].Value;
                 drLocal["DGViewDecimal"] = dr.Cells["DGViewDecimal"].Value;
                 drLocal["DGViewIndex"] = dr.Cells["DGViewIndex"].Value;
-                drLocal["DGViewNull"] = dr.Cells["DGViewNull"].Value    =   false;         
+               // drLocal["DGViewNull"] = dr.Cells["DGViewNull"].Value;         
                 //dr.Cells["DGViewNull"].Value = false;
                 dt.Rows.Add(drLocal);
-                //dataGridView1.DataSource = dt;
+                //dataGridView1.DataSource = dt;             
              }
                 dataGridView1.DataSource = dt;  
         }

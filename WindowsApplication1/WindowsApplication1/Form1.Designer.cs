@@ -42,7 +42,6 @@
             this.DGViewWidth = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
             this.DGViewDecimal = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
             this.DGViewIndex = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.DGViewNull = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -58,8 +57,7 @@
             this.DGViewType,
             this.DGViewWidth,
             this.DGViewDecimal,
-            this.DGViewIndex,
-            this.DGViewNull});
+            this.DGViewIndex});
             this.dataGridView1.Location = new System.Drawing.Point(9, 14);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(674, 150);
@@ -176,14 +174,6 @@
             this.DGViewIndex.HeaderText = "Index";
             this.DGViewIndex.Name = "DGViewIndex";
             // 
-            // DGViewNull
-            // 
-            this.DGViewNull.FalseValue = "yes";
-            this.DGViewNull.HeaderText = "NULL";
-            this.DGViewNull.IndeterminateValue = "no";
-            this.DGViewNull.Name = "DGViewNull";
-            this.DGViewNull.TrueValue = "yes";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,6 +212,5 @@
         private DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn DGViewWidth;
         private DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn DGViewDecimal;
         private System.Windows.Forms.DataGridViewComboBoxColumn DGViewIndex;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn DGViewNull;
     }
 }
