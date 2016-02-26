@@ -10,3 +10,9 @@ C:\Users\Nelson\Documents\C# WPF\Table Designer\WindowsApplication1\DataGridView
 C:\Users\Nelson\Documents\C# WPF\Table Designer\WindowsApplication1\DataGridViewNumericUpDownElements\obj\Release\DataGridViewNumericUpDownElements.csprojResolveAssemblyReference.cache
 C:\Users\Nelson\Documents\C# WPF\Table Designer\WindowsApplication1\DataGridViewNumericUpDownElements\obj\Release\DataGridViewNumericUpDownElements.dll
 C:\Users\Nelson\Documents\C# WPF\Table Designer\WindowsApplication1\DataGridViewNumericUpDownElements\obj\Release\DataGridViewNumericUpDownElements.pdb
+C:\Users\Nelson\Documents\GitHub\TableDesigner\WindowsApplication1\DataGridViewNumericUpDownElements\bin\Release\DataGridViewNumericUpDownEditingControl.cs
+C:\Users\Nelson\Documents\GitHub\TableDesigner\WindowsApplication1\DataGridViewNumericUpDownElements\bin\Release\DataGridViewNumericUpDownElements.dll
+C:\Users\Nelson\Documents\GitHub\TableDesigner\WindowsApplication1\DataGridViewNumericUpDownElements\bin\Release\DataGridViewNumericUpDownElements.pdb
+C:\Users\Nelson\Documents\GitHub\TableDesigner\WindowsApplication1\DataGridViewNumericUpDownElements\obj\Release\DataGridViewNumericUpDownElements.csprojResolveAssemblyReference.cache
+C:\Users\Nelson\Documents\GitHub\TableDesigner\WindowsApplication1\DataGridViewNumericUpDownElements\obj\Release\DataGridViewNumericUpDownElements.dll
+C:\Users\Nelson\Documents\GitHub\TableDesigner\WindowsApplication1\DataGridViewNumericUpDownElements\obj\Release\DataGridViewNumericUpDownElements.pdb

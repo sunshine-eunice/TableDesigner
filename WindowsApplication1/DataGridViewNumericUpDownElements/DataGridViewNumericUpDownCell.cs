@@ -145,7 +145,6 @@ namespace DataGridViewNumericUpDownElements
         /// </summary>
         public Decimal Increment
         {
-
             get
             {
                 return this.increment;
@@ -167,7 +166,6 @@ namespace DataGridViewNumericUpDownElements
         /// </summary>
         public Decimal Maximum
         {
-
             get
             {
                 return this.maximum;
@@ -313,6 +311,7 @@ namespace DataGridViewNumericUpDownElements
         /// <summary>
         /// Adjusts the location and size of the editing control given the alignment characteristics of the cell
         /// </summary>
+        
         private Rectangle GetAdjustedEditingControlBounds(Rectangle editingControlBounds, DataGridViewCellStyle cellStyle)
         {
             // Add a 1 pixel padding on the left and right of the editing control
@@ -400,7 +399,6 @@ namespace DataGridViewNumericUpDownElements
             {
                 return new Size(-1, -1);
             }
-
             Size preferredSize = base.GetPreferredSize(graphics, cellStyle, rowIndex, constraintSize);
             if (constraintSize.Width == 0)
             {
@@ -786,6 +784,5 @@ namespace DataGridViewNumericUpDownElements
                 return HorizontalAlignment.Left;
             }
         }
-
     }
 }

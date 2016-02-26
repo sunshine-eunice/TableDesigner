@@ -17,7 +17,8 @@ namespace WindowsApplication1
             InitializeComponent();       
         }
         DataTable dt = new DataTable();
-        //int i;
+        DataTable dt2 = new DataTable();
+        //int i, j;
       
         public string textName { get; set; }
         public string Cmbtype { get; set; }
@@ -25,18 +26,34 @@ namespace WindowsApplication1
         public int Decimal { get; set; }
         public string Index { get; set; }
         public bool checkboxNull { get; set; }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             //dataGridView1.ReadOnly = true;
+
+            #region ///adding of columns from datagridview1 to dataset dt
             foreach (DataGridViewColumn col in dataGridView1.Columns) {
                dt.Columns.Add(col.Name);
-                col.DataPropertyName = col.Name;                
+                col.DataPropertyName = col.Name;
             }
+            #endregion
 
+
+            #region ///adding of columns from datagridview2 to dataset dt
+            foreach (DataGridViewColumn col1 in dataGridView2.Columns)
+            {
+                dt2.Columns.Add(col1.Name);
+                col1.DataPropertyName = col1.Name;
+            }
+            #endregion
+
+            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.Beige;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridView1.CellValueChanged +=new DataGridViewCellEventHandler(dataGridView1_CellValueChanged);
+            
             DGViewName.MaxInputLength = 10;
 
-            DGViewType.DefaultCellStyle.NullValue = "==Select==";
+            DGViewType.DefaultCellStyle.NullValue = "==Select=="; 
             DGViewType.Items.Add("Character");
             DGViewType.Items.Add("Currency");
             DGViewType.Items.Add("Numeric");
@@ -56,14 +73,18 @@ namespace WindowsApplication1
             DGViewIndex.Items.Add("Ascending");
             DGViewIndex.Items.Add("Descending");
 
+            DGView2Order.Items.Add("Ascending");
+            DGView2Order.Items.Add("Descending");
+
+            DGView2Type.Items.Add("Candidate");
+            DGView2Type.Items.Add("Unique");
+            DGView2Type.Items.Add("Regular");
+
             dt.Columns.Add("NULL",typeof(Boolean));
 
-            dt.Columns["NULL"].DefaultValue = false;
-            dt.Columns["DGViewWidth"].DefaultValue = 0;
-            //DGViewNull.FalseValue = false;
-            //this.dataGridView1.Columns["DGViewNull"].DefaultCellStyle.NullValue = false;
-            //dataGridView1.Columns["DGViewNull"].DefaultCellStyle.NullValue = false;
-
+            dt.Columns["NULL"].DefaultValue         =   false;
+            
+            
             DataRow drLocal = null;
             foreach (DataGridViewRow dr in dataGridView1.Rows)
              {
@@ -78,7 +99,13 @@ namespace WindowsApplication1
                 dt.Rows.Add(drLocal);
                 //dataGridView1.DataSource = dt;             
              }
-                dataGridView1.DataSource = dt;  
+                dataGridView1.DataSource = dt;
+
+              //  var gd1 = (from a in dataGridView1.Rows.Cast<DataGridViewRow>()
+         //select new { Column1 = a.Cells["Column1"].Value.ToString() }).tolist();
+
+                //loop dg1 and save it to datagridview2
+               
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -98,7 +125,7 @@ namespace WindowsApplication1
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
+            }           
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -114,6 +141,7 @@ namespace WindowsApplication1
                 {
                     Application.Exit();
                 }
+
             }
         }
 
@@ -135,5 +163,65 @@ namespace WindowsApplication1
             }
             MessageBox.Show(s.ToString());         
         }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
+           string str = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            if (dataGridView1.Columns[e.ColumnIndex].Name  ==  "DGViewType") {   
+                      //str = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                      if (str == "Date")    {
+                         //dataGridView1.Columns["DGViewWidth"].ReadOnly = true;
+                         // dataGridView1.Columns["DGViewWidth"].Frozen = true;
+                         //dataGridView1.Columns["DGViewDecimal"].ReadOnly = true;   
+                          DataGridViewCell cell = dataGridView1.Rows[e.RowIndex].Cells[3];
+                          dataGridView1.CurrentCell = cell;
+                          dataGridView1.CurrentCell.ReadOnly = true;
+                          dataGridView1.BeginEdit(true);
+                          dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Red;
+
+                          DataGridViewCell cell1 = dataGridView1.Rows[e.RowIndex].Cells[2];
+                          dataGridView1.CurrentCell = cell1;
+                          dataGridView1.CurrentCell.ReadOnly = true;
+                          dataGridView1.BeginEdit(true);
+                          //dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Red;
+                      }      
+                }
+            else if (dataGridView1.Columns[e.ColumnIndex].Name == "DGViewIndex")
+            {
+                if (str == "Ascending" || str == "Descending") {
+                    if (dataGridView1.SelectedCells.Count > 0)
+                    {
+                        int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
+
+                        DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
+
+                        string a = Convert.ToString(selectedRow.Cells["DGViewName"].Value);
+                        string b = Convert.ToString(selectedRow.Cells["DGViewIndex"].Value);
+                        dt2.Rows.Add(b, a, "Regular", a,"");
+                        dataGridView2.DataSource = dt2;
+                    }
+
+                }
+                 }
+            else if (dataGridView1.Columns[e.ColumnIndex].Name == "DGViewName") {
+                  string sub = str.Substring(0);
+                if (sub == "") {
+                    MessageBox.Show("Error name!");
+                }             
+            }           
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView2.Columns[e.ColumnIndex].Name == "DGView2Expression_btn")
+            {
+                //Write here your code...
+                MessageBox.Show("You Have Selected " + (e.RowIndex + 1).ToString() + " Row Button");
+            }
+        }
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+ 
     } 
  }
