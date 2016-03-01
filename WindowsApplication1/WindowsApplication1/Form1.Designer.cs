@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGViewName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DGViewType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DGViewWidth = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
+            this.DGViewDecimal = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
+            this.DGViewIndex = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnDel = new System.Windows.Forms.Button();
@@ -41,17 +46,6 @@
             this.btnCancel2 = new System.Windows.Forms.Button();
             this.btnOK2 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewNumericUpDownColumn1 = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
-            this.dataGridViewNumericUpDownColumn2 = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DGViewName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DGViewType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.DGViewWidth = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
-            this.DGViewDecimal = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
-            this.DGViewIndex = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.DGView2Order = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.DGView2Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DGView2Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -59,6 +53,12 @@
             this.DGView2Expression_btn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.DGView2Filter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DGView2Filter_btn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewNumericUpDownColumn1 = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
+            this.dataGridViewNumericUpDownColumn2 = new DataGridViewNumericUpDownElements.DataGridViewNumericUpDownColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -79,6 +79,39 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(586, 150);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // DGViewName
+            // 
+            this.DGViewName.HeaderText = "Name";
+            this.DGViewName.Name = "DGViewName";
+            this.DGViewName.Width = 120;
+            // 
+            // DGViewType
+            // 
+            this.DGViewType.HeaderText = "Type";
+            this.DGViewType.Name = "DGViewType";
+            // 
+            // DGViewWidth
+            // 
+            this.DGViewWidth.HeaderText = "Width";
+            this.DGViewWidth.Maximum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            0});
+            this.DGViewWidth.Name = "DGViewWidth";
+            this.DGViewWidth.Width = 60;
+            // 
+            // DGViewDecimal
+            // 
+            this.DGViewDecimal.HeaderText = "Decimal";
+            this.DGViewDecimal.Name = "DGViewDecimal";
+            this.DGViewDecimal.Width = 60;
+            // 
+            // DGViewIndex
+            // 
+            this.DGViewIndex.HeaderText = "Index";
+            this.DGViewIndex.Name = "DGViewIndex";
             // 
             // tabControl1
             // 
@@ -187,6 +220,7 @@
             this.btnCancel2.TabIndex = 10;
             this.btnCancel2.Text = "Cancel";
             this.btnCancel2.UseVisualStyleBackColor = true;
+            this.btnCancel2.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOK2
             // 
@@ -208,81 +242,10 @@
             this.DGView2Expression_btn,
             this.DGView2Filter,
             this.DGView2Filter_btn});
-            this.dataGridView2.Location = new System.Drawing.Point(97, 20);
+            this.dataGridView2.Location = new System.Drawing.Point(90, 20);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(514, 150);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 120;
-            // 
-            // dataGridViewNumericUpDownColumn1
-            // 
-            this.dataGridViewNumericUpDownColumn1.HeaderText = "Width";
-            this.dataGridViewNumericUpDownColumn1.Maximum = new decimal(new int[] {
-            256,
-            0,
-            0,
-            0});
-            this.dataGridViewNumericUpDownColumn1.Name = "dataGridViewNumericUpDownColumn1";
-            // 
-            // dataGridViewNumericUpDownColumn2
-            // 
-            this.dataGridViewNumericUpDownColumn2.HeaderText = "Decimal";
-            this.dataGridViewNumericUpDownColumn2.Name = "dataGridViewNumericUpDownColumn2";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Expression";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Filter";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // DGViewName
-            // 
-            this.DGViewName.HeaderText = "Name";
-            this.DGViewName.Name = "DGViewName";
-            this.DGViewName.Width = 120;
-            // 
-            // DGViewType
-            // 
-            this.DGViewType.HeaderText = "Type";
-            this.DGViewType.Name = "DGViewType";
-            // 
-            // DGViewWidth
-            // 
-            this.DGViewWidth.HeaderText = "Width";
-            this.DGViewWidth.Maximum = new decimal(new int[] {
-            256,
-            0,
-            0,
-            0});
-            this.DGViewWidth.Name = "DGViewWidth";
-            this.DGViewWidth.Width = 60;
-            // 
-            // DGViewDecimal
-            // 
-            this.DGViewDecimal.HeaderText = "Decimal";
-            this.DGViewDecimal.Name = "DGViewDecimal";
-            this.DGViewDecimal.Width = 60;
-            // 
-            // DGViewIndex
-            // 
-            this.DGViewIndex.HeaderText = "Index";
-            this.DGViewIndex.Name = "DGViewIndex";
             // 
             // DGView2Order
             // 
@@ -329,6 +292,44 @@
             this.DGView2Filter_btn.HeaderText = "";
             this.DGView2Filter_btn.Name = "DGView2Filter_btn";
             this.DGView2Filter_btn.Width = 20;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 120;
+            // 
+            // dataGridViewNumericUpDownColumn1
+            // 
+            this.dataGridViewNumericUpDownColumn1.HeaderText = "Width";
+            this.dataGridViewNumericUpDownColumn1.Maximum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            0});
+            this.dataGridViewNumericUpDownColumn1.Name = "dataGridViewNumericUpDownColumn1";
+            // 
+            // dataGridViewNumericUpDownColumn2
+            // 
+            this.dataGridViewNumericUpDownColumn2.HeaderText = "Decimal";
+            this.dataGridViewNumericUpDownColumn2.Name = "dataGridViewNumericUpDownColumn2";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Expression";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Filter";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // Form1
             // 

@@ -50,9 +50,11 @@ namespace WindowsApplication1
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.Beige;
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridView1.CellValueChanged +=new DataGridViewCellEventHandler(dataGridView1_CellValueChanged);
-            
+            dataGridView2.CellClick += new DataGridViewCellEventHandler(dataGridView2_CellContentClick);
+           
             DGViewName.MaxInputLength = 10;
 
+            #region added choices for comboboxType
             DGViewType.DefaultCellStyle.NullValue = "==Select=="; 
             DGViewType.Items.Add("Character");
             DGViewType.Items.Add("Currency");
@@ -67,7 +69,7 @@ namespace WindowsApplication1
             DGViewType.Items.Add("General");
             DGViewType.Items.Add("Character (binary)");
             DGViewType.Items.Add("Memo (binary)");
-
+            #endregion
             DGViewIndex.DefaultCellStyle.NullValue = "==Select==";
             DGViewIndex.Items.Add("None");
             DGViewIndex.Items.Add("Ascending");
@@ -215,13 +217,16 @@ namespace WindowsApplication1
             if (dataGridView2.Columns[e.ColumnIndex].Name == "DGView2Expression_btn")
             {
                 //Write here your code...
-                MessageBox.Show("You Have Selected " + (e.RowIndex + 1).ToString() + " Row Button");
+               // MessageBox.Show("You Have Selected " + (e.RowIndex + 1).ToString() + " Row Button");
+                ExpressionBuilder expression    =   new ExpressionBuilder();
+                expression.ShowDialog();
             }
         }
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
  
     } 
  }

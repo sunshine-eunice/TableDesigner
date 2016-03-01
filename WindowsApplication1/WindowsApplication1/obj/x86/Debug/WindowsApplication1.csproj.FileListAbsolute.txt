@@ -57,3 +57,4 @@ C:\Users\Nelson\Documents\WinForms\TableDesigner\WindowsApplication1\WindowsAppl
 C:\Users\Nelson\Documents\WinForms\TableDesigner\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.Properties.Resources.resources
 C:\Users\Nelson\Documents\WinForms\TableDesigner\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.csproj.GenerateResource.Cache
 C:\Users\Nelson\Documents\WinForms\TableDesigner\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.ExpressionBuilder.resources
+C:\Users\Nelson\Documents\GitHub\TableDesigner\WindowsApplication1\WindowsApplication1\obj\x86\Debug\WindowsApplication1.ExpressionBuilder.resources
