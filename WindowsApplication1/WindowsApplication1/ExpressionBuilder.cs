@@ -82,8 +82,7 @@ namespace WindowsApplication1
             cmbString.Items.Add(new Item("STRCONV(,)"     , 46));
             cmbString.Items.Add(new Item("STUFFC(,,,)"    , 47));
             cmbString.Items.Add(new Item("SUBSTRC(,,)"    , 48));
-            #endregion
-            
+            #endregion            
             cmbString.SelectedIndex = 0;
             cmbString.SelectedIndexChanged +=new EventHandler(cmbString_SelectedIndexChanged);
 
@@ -135,11 +134,276 @@ namespace WindowsApplication1
             cmbMath.Items.Add(new Item("TAN(expN)"    ,45));
             cmbMath.Items.Add(new Item("VAL(expC)"    ,46));
             #endregion
-            cmbMath.SelectedIndex   =   0;
+            cmbMath.SelectedIndex       =   0;
+
+            #region add items to Logical combobox
+            cmbLogical.Items.Add(new Item("()", 0));
+            cmbLogical.Items.Add(new Item("<" , 1));
+            cmbLogical.Items.Add(new Item(">" , 2));
+            cmbLogical.Items.Add(new Item("=" , 3));
+            cmbLogical.Items.Add(new Item("<>", 4));
+            cmbLogical.Items.Add(new Item("<=", 5));
+            cmbLogical.Items.Add(new Item(">=", 6));
+            cmbLogical.Items.Add(new Item("==", 7));
+            cmbLogical.Items.Add(new Item(".T.",8));
+            cmbLogical.Items.Add(new Item(".F.",9));
+            cmbLogical.Items.Add(new Item(".NULL.",10));
+            cmbLogical.Items.Add(new Item("NOT"   ,11));
+            cmbLogical.Items.Add(new Item("AND"   ,12));
+            cmbLogical.Items.Add(new Item("OR"    ,13));
+            cmbLogical.Items.Add(new Item("BETWEEN(,,)",14));
+            cmbLogical.Items.Add(new Item("DELETED()"  ,15));
+            cmbLogical.Items.Add(new Item("EMPTY(expr)",16));
+            cmbLogical.Items.Add(new Item("IIF(,,)"    ,17));
+            cmbLogical.Items.Add(new Item("INLIST(,,)" ,18));
+            cmbLogical.Items.Add(new Item("NVL(,)"     ,19));
+            cmbLogical.Items.Add(new Item("SEEK(,,)"   ,20));
+            #endregion
+            cmbLogical.SelectedIndex    =   0;
+
+            #region add items to Date combobox
+            cmbDate.Items.Add(new Item("{date}"    , 0));
+            cmbDate.Items.Add(new Item("CDOW(expD)", 1));
+            cmbDate.Items.Add(new Item("CTOD(expC)", 2));
+            cmbDate.Items.Add(new Item("CTOT(expC)", 3));
+            cmbDate.Items.Add(new Item("DATE()"    , 4));
+            cmbDate.Items.Add(new Item("DATETIME()", 5));
+            cmbDate.Items.Add(new Item("DAY(expD)" , 6));
+            cmbDate.Items.Add(new Item("DMY(expD)" , 7));
+            cmbDate.Items.Add(new Item("DOW(expD)" , 8));
+            cmbDate.Items.Add(new Item("DTOC(expD)", 9));
+            cmbDate.Items.Add(new Item("DTOS(expD)",10));
+            cmbDate.Items.Add(new Item("DTOT(expD)",11));
+            cmbDate.Items.Add(new Item("GOMONTH(expD,)", 12));
+            cmbDate.Items.Add(new Item("HOUR(expD)"    , 13));
+            cmbDate.Items.Add(new Item("MAX(,)"        , 14));
+            cmbDate.Items.Add(new Item("MDY(expD)"     , 15));
+            cmbDate.Items.Add(new Item("MIN(,)"        , 16));
+            cmbDate.Items.Add(new Item("MINUTE(expD)"  , 17));
+            cmbDate.Items.Add(new Item("MONTH(expD)"   , 18));
+            cmbDate.Items.Add(new Item("SEC(expD)"     , 19));
+            cmbDate.Items.Add(new Item("SECONDS()"     , 20));
+            cmbDate.Items.Add(new Item("TIME()"        , 21));
+            cmbDate.Items.Add(new Item("TTOC(expD)"    , 22));
+            cmbDate.Items.Add(new Item("TTOD(expC)"    , 23));
+            cmbDate.Items.Add(new Item("WEEK(expD)"    , 24));
+            cmbDate.Items.Add(new Item("YEAR(expD)"    , 25));
+            #endregion
+            cmbDate.SelectedIndex       =   0;
+
+            #region Add Columns and Row to listView Variables 
+            listView2.View = View.Details;
+            listView2.Columns.Add("", 65, HorizontalAlignment.Left);
+            listView2.Columns.Add("", 20, HorizontalAlignment.Left);
+            listView2.FullRowSelect = true;
+            listView2.GridLines = true;
+
+            ListViewItem change1 = new ListViewItem("_alignment");
+            change1.SubItems.Add("C");
+
+            ListViewItem change2 = new ListViewItem("_box");
+            change2.SubItems.Add("L");
+
+            ListViewItem change3 = new ListViewItem("_indent");
+            change3.SubItems.Add("N");
+
+            ListViewItem change4 = new ListViewItem("_lmargin");
+            change4.SubItems.Add("N");
+
+            ListViewItem change5 = new ListViewItem("_padvance");
+            change5.SubItems.Add("C");
+
+            ListViewItem change6 = new ListViewItem("_pageno");
+            change6.SubItems.Add("N");
+
+            ListViewItem change7 = new ListViewItem("_pbpage");
+            change7.SubItems.Add("N");
+
+            ListViewItem change8 = new ListViewItem("_pcolno");
+            change8.SubItems.Add("N");
+
+            ListViewItem change9 = new ListViewItem("_pcopies");
+            change9.SubItems.Add("N");
+
+            ListViewItem change10 = new ListViewItem("_pdriver");
+            change10.SubItems.Add("C");
+
+            ListViewItem change11 = new ListViewItem("_pecode");
+            change11.SubItems.Add("C");
+
+            ListViewItem change12 = new ListViewItem("_peject");
+            change12.SubItems.Add("C");
+
+            ListViewItem change13 = new ListViewItem("_pepage");
+            change5.SubItems.Add("N");
+
+            ListViewItem change14 = new ListViewItem("_pform");
+            change14.SubItems.Add("C");
+
+            ListViewItem change15 = new ListViewItem("_plength");
+            change15.SubItems.Add("N");
+
+            ListViewItem change16 = new ListViewItem("_plineno");
+            change16.SubItems.Add("N");
+
+            ListViewItem change17 = new ListViewItem("_ploffset");
+            change17.SubItems.Add("N");
+
+            ListViewItem change18 = new ListViewItem("_ppitch");
+            change18.SubItems.Add("C");
+
+            ListViewItem change19 = new ListViewItem("_pquality");
+            change19.SubItems.Add("L");
+
+            ListViewItem change20 = new ListViewItem("_pscode");
+            change20.SubItems.Add("C");
+
+            ListViewItem change21 = new ListViewItem("_pspacing");
+            change21.SubItems.Add("N");
+
+            ListViewItem change22 = new ListViewItem("_pwait");
+            change22.SubItems.Add("L");
+
+            ListViewItem change23 = new ListViewItem("_rmargin");
+            change23.SubItems.Add("N");
+
+            ListViewItem change24 = new ListViewItem("_tabs");
+            change24.SubItems.Add("C");
+
+            ListViewItem change25 = new ListViewItem("_wrap");
+            change25.SubItems.Add("L");
+
+            ListViewItem change26 = new ListViewItem("_dblclick");
+            change26.SubItems.Add("N");
+
+            ListViewItem change27 = new ListViewItem("_calcvalue");
+            change27.SubItems.Add("N");
+
+            ListViewItem change28 = new ListViewItem("_calcmem");
+            change28.SubItems.Add("N");
+
+            ListViewItem change29 = new ListViewItem("_diarydate");
+            change29.SubItems.Add("D");
+
+            ListViewItem change30 = new ListViewItem("_cliptext");
+            change30.SubItems.Add("C");
+
+            ListViewItem change31 = new ListViewItem("_text");
+            change31.SubItems.Add("N");
+
+            ListViewItem change32 = new ListViewItem("_pretext");
+            change32.SubItems.Add("C");
+
+            ListViewItem change33 = new ListViewItem("_tally");
+            change33.SubItems.Add("N");
+
+            ListViewItem change34 = new ListViewItem("_curobj");
+            change17.SubItems.Add("N");
+
+            ListViewItem change35 = new ListViewItem("_mline");
+            change35.SubItems.Add("N");
+
+            ListViewItem change36 = new ListViewItem("_throttle");
+            change36.SubItems.Add("N");
+
+            ListViewItem change37 = new ListViewItem("_genmenu");
+            change37.SubItems.Add("C");
+
+            ListViewItem change38 = new ListViewItem("_genscrn");
+            change38.SubItems.Add("C");
+
+            ListViewItem change39 = new ListViewItem("_gengraph");
+            change39.SubItems.Add("C");
+
+            ListViewItem change40 = new ListViewItem("_genpd");
+            change40.SubItems.Add("C");
+
+            ListViewItem change41 = new ListViewItem("_pdsetup");
+            change41.SubItems.Add("C");
+
+            ListViewItem change42 = new ListViewItem("_genxtab");
+            change42.SubItems.Add("C");
+
+            ListViewItem change43 = new ListViewItem("_foxdoc");
+            change43.SubItems.Add("C");
+
+            ListViewItem change44 = new ListViewItem("_foxgraph");
+            change44.SubItems.Add("C");
+
+            ListViewItem change45 = new ListViewItem("_startup");
+            change45.SubItems.Add("C");
+
+            ListViewItem change46 = new ListViewItem("_transport");
+            change46.SubItems.Add("C");
+
+            ListViewItem change47 = new ListViewItem("_beautify");
+            change47.SubItems.Add("C");
+
+            ListViewItem change48 = new ListViewItem("_dos");
+            change48.SubItems.Add("L");
+
+            ListViewItem change49 = new ListViewItem("_mac");
+            change38.SubItems.Add("L");
+
+            ListViewItem change50 = new ListViewItem("_unix");
+            change50.SubItems.Add("L");
+
+            ListViewItem change51 = new ListViewItem("_windows");
+            change51.SubItems.Add("L");
+
+            ListViewItem change52 = new ListViewItem("_spellchk");
+            change52.SubItems.Add("C");
+
+            ListViewItem change53 = new ListViewItem("_shell");
+            change53.SubItems.Add("C");
+
+            ListViewItem change54 = new ListViewItem("_assist");
+            change54.SubItems.Add("C");
+
+            ListViewItem change55 = new ListViewItem("_screen");
+            change55.SubItems.Add("O");
+
+            ListViewItem change56 = new ListViewItem("_builder");
+            change56.SubItems.Add("C");
+
+            ListViewItem change57 = new ListViewItem("_converter");
+            change57.SubItems.Add("C");
+
+            ListViewItem change58 = new ListViewItem("_wizard");
+            change58.SubItems.Add("C");
+
+            ListViewItem change59 = new ListViewItem("_triggerlevel");
+            change59.SubItems.Add("N");
+
+            ListViewItem change60 = new ListViewItem("_asciicols");
+            change60.SubItems.Add("N");
+
+            ListViewItem change61 = new ListViewItem("_asciirows");
+            change61.SubItems.Add("N");
+
+            ListViewItem change62 = new ListViewItem("_browser");
+            change62.SubItems.Add("C");
+
+            ListViewItem change63 = new ListViewItem("_scctext");
+            change63.SubItems.Add("C");
+
+            ListViewItem change64 = new ListViewItem("_coverage");
+            change64.SubItems.Add("C");
+
+            ListViewItem change65 = new ListViewItem("_vfp");
+            change65.SubItems.Add("O");
+
+            listView2.Items.AddRange(new ListViewItem[] { change1, change2, change3, change4, change5, change6 });
+            #endregion
         }
 
         private void cmbString_SelectedIndexChanged(object sender, EventArgs e) {  
             
+        }
+
+        private void btnCancel3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
         //private void ExpressionBuilder_Load(object sender, EventArgs e)
         //{

@@ -32,8 +32,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnOK3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbLogical = new System.Windows.Forms.ComboBox();
+            this.cmbDate = new System.Windows.Forms.ComboBox();
             this.cmbMath = new System.Windows.Forms.ComboBox();
             this.cmbString = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -81,8 +81,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox4);
-            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.cmbLogical);
+            this.groupBox1.Controls.Add(this.cmbDate);
             this.groupBox1.Controls.Add(this.cmbMath);
             this.groupBox1.Controls.Add(this.cmbString);
             this.groupBox1.Controls.Add(this.label5);
@@ -96,21 +96,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Functions";
             // 
-            // comboBox4
+            // cmbLogical
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(9, 79);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(98, 21);
-            this.comboBox4.TabIndex = 8;
+            this.cmbLogical.FormattingEnabled = true;
+            this.cmbLogical.Location = new System.Drawing.Point(9, 79);
+            this.cmbLogical.Name = "cmbLogical";
+            this.cmbLogical.Size = new System.Drawing.Size(98, 21);
+            this.cmbLogical.TabIndex = 8;
             // 
-            // comboBox3
+            // cmbDate
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(127, 79);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(114, 21);
-            this.comboBox3.TabIndex = 7;
+            this.cmbDate.FormattingEnabled = true;
+            this.cmbDate.Location = new System.Drawing.Point(127, 79);
+            this.cmbDate.Name = "cmbDate";
+            this.cmbDate.Size = new System.Drawing.Size(114, 21);
+            this.cmbDate.TabIndex = 7;
             // 
             // cmbMath
             // 
@@ -180,7 +180,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 5;
-            this.label7.Text = "Varaibles:";
+            this.label7.Text = "Variables:";
             // 
             // label8
             // 
@@ -216,6 +216,7 @@
             this.btnCancel3.TabIndex = 11;
             this.btnCancel3.Text = "Cancel";
             this.btnCancel3.UseVisualStyleBackColor = true;
+            this.btnCancel3.Click += new System.EventHandler(this.btnCancel3_Click);
             // 
             // button4
             // 
@@ -276,8 +277,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnOK3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbLogical;
+        private System.Windows.Forms.ComboBox cmbDate;
         private System.Windows.Forms.ComboBox cmbMath;
         private System.Windows.Forms.ComboBox cmbString;
         private System.Windows.Forms.Label label5;
