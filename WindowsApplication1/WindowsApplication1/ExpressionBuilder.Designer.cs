@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbExpression = new System.Windows.Forms.TextBox();
             this.btnOK3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbLogical = new System.Windows.Forms.ComboBox();
@@ -61,14 +61,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Expression:";
             // 
-            // textBox1
+            // tbExpression
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 25);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(247, 55);
-            this.textBox1.TabIndex = 1;
+            this.tbExpression.Location = new System.Drawing.Point(15, 25);
+            this.tbExpression.Multiline = true;
+            this.tbExpression.Name = "tbExpression";
+            this.tbExpression.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbExpression.Size = new System.Drawing.Size(247, 55);
+            this.tbExpression.TabIndex = 1;
             // 
             // btnOK3
             // 
@@ -242,6 +242,7 @@
             this.listView2.Size = new System.Drawing.Size(97, 96);
             this.listView2.TabIndex = 14;
             this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.DoubleClick += new System.EventHandler(this.listView2_DoubleClick);
             // 
             // ExpressionBuilder
             // 
@@ -259,7 +260,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnOK3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbExpression);
             this.Controls.Add(this.label1);
             this.Name = "ExpressionBuilder";
             this.Text = "Expression Builder";
@@ -274,7 +275,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbExpression;
         private System.Windows.Forms.Button btnOK3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cmbLogical;

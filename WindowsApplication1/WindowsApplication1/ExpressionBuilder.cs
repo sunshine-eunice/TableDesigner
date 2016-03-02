@@ -393,7 +393,18 @@ namespace WindowsApplication1
             ListViewItem change65 = new ListViewItem("_vfp");
             change65.SubItems.Add("O");
 
-            listView2.Items.AddRange(new ListViewItem[] { change1, change2, change3, change4, change5, change6 });
+            listView2.Items.AddRange(new ListViewItem[] { change1, change2, change3, change4, change5, change6,
+                                                          change7, change8, change9, change10, change11, change12,
+                                                          change13, change14, change15, change16, change17, 
+                                                          change18, change19, change20, change21, change22, 
+                                                          change23, change24, change25, change26, change27, 
+                                                          change28, change29, change30, change31, change32,
+                                                          change33, change34, change35, change36, change37, change38,
+                                                          change39, change40, change41, change42, change43, change44,
+                                                          change45, change46, change47, change48, change49, change50,
+                                                          change51, change52, change53, change54, change55, change56,
+                                                          change57, change58, change59, change60, change61, change62,
+                                                          change63, change64, change65});
             #endregion
         }
 
@@ -404,6 +415,18 @@ namespace WindowsApplication1
         private void btnCancel3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void listView2_DoubleClick(object sender, EventArgs e)
+        {
+            if (listView2.SelectedItems.Count > 0)
+            {
+                ListViewItem item = listView2.SelectedItems[0];
+                tbExpression.Text = item.SubItems[0].Text;
+            }
+            else { 
+                tbExpression.Text   =   string.Empty;
+            }
         }
         //private void ExpressionBuilder_Load(object sender, EventArgs e)
         //{
