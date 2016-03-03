@@ -27,7 +27,7 @@ namespace WindowsApplication1
         }
         public ExpressionBuilder()
         {
-            InitializeComponent();
+            InitializeComponent();           
         }
 
         private void ExpressionBuilder_Load(object sender, EventArgs e)
@@ -83,8 +83,7 @@ namespace WindowsApplication1
             cmbString.Items.Add(new Item("STUFFC(,,,)"    , 47));
             cmbString.Items.Add(new Item("SUBSTRC(,,)"    , 48));
             #endregion            
-            cmbString.SelectedIndex = 0;
-            cmbString.SelectedIndexChanged +=new EventHandler(cmbString_SelectedIndexChanged);
+            cmbString.SelectedIndex = 0;           
 
             #region add items to Math combobox
             cmbMath.Items.Add(new Item("^", 0));
@@ -135,6 +134,7 @@ namespace WindowsApplication1
             cmbMath.Items.Add(new Item("VAL(expC)"    ,46));
             #endregion
             cmbMath.SelectedIndex       =   0;
+            //cmbMath.SelectionChangeCommitted +=new EventHandler(cmbMath_SelectionChangeCommitted);
 
             #region add items to Logical combobox
             cmbLogical.Items.Add(new Item("()", 0));
@@ -405,11 +405,7 @@ namespace WindowsApplication1
                                                           change51, change52, change53, change54, change55, change56,
                                                           change57, change58, change59, change60, change61, change62,
                                                           change63, change64, change65});
-            #endregion
-        }
-
-        private void cmbString_SelectedIndexChanged(object sender, EventArgs e) {  
-            
+            #endregion           
         }
 
         private void btnCancel3_Click(object sender, EventArgs e)
@@ -422,11 +418,41 @@ namespace WindowsApplication1
             if (listView2.SelectedItems.Count > 0)
             {
                 ListViewItem item = listView2.SelectedItems[0];
-                tbExpression.Text = item.SubItems[0].Text;
+                tbExpression.Text += item.SubItems[0].Text;
             }
             else { 
-                tbExpression.Text   =   string.Empty;
+                tbExpression.Text  =   string.Empty;
             }
+        }
+
+        private void cmbMath_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+           string math          =    cmbMath.SelectedItem.ToString();
+           tbExpression.Text    +=   math;
+            
+        }
+
+        private void cmbString_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string CB_string    =    cmbString.SelectedItem.ToString();
+            tbExpression.Text   +=   CB_string;
+        }
+
+        private void cmbLogical_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string CB_Logical   =    cmbLogical.SelectedItem.ToString();
+            tbExpression.Text   +=   CB_Logical;
+        }
+
+        private void cmbDate_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string CB_Date = cmbDate.SelectedItem.ToString();
+            tbExpression.Text += CB_Date;
+        }
+
+        private void btnOK3_Click(object sender, EventArgs e)
+        {
+
         }
         //private void ExpressionBuilder_Load(object sender, EventArgs e)
         //{

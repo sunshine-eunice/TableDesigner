@@ -14,7 +14,7 @@ namespace WindowsApplication1
     {
         public Form1()
         {
-            InitializeComponent();       
+            InitializeComponent();   
         }
         DataTable dt = new DataTable();
         DataTable dt2 = new DataTable();
@@ -205,6 +205,7 @@ namespace WindowsApplication1
                 }
                  }
             else if (dataGridView1.Columns[e.ColumnIndex].Name == "DGViewName") {
+
                   string sub = str.Substring(0);
                 if (sub == "") {
                     MessageBox.Show("Error name!");
