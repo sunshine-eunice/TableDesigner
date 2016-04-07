@@ -32,6 +32,7 @@ namespace WindowsApplication1
 
         private void ExpressionBuilder_Load(object sender, EventArgs e)
         {
+            tbExpression.Text   =   Form1.textName;
             #region add items to string combobox
             cmbString.Items.Add(new Item("\"text\""     , 0));
             cmbString.Items.Add(new Item("+"            , 1));
@@ -406,6 +407,7 @@ namespace WindowsApplication1
                                                           change57, change58, change59, change60, change61, change62,
                                                           change63, change64, change65});
             #endregion           
+
         }
 
         private void btnCancel3_Click(object sender, EventArgs e)

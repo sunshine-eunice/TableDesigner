@@ -20,7 +20,7 @@ namespace WindowsApplication1
         DataTable dt2 = new DataTable();
         //int i, j;
       
-        public string textName { get; set; }
+        public static string textName { get; set; }
         public string Cmbtype { get; set; }
         public int PWidth { get; set; }
         public int Decimal { get; set; }
@@ -38,8 +38,7 @@ namespace WindowsApplication1
             }
             #endregion
 
-
-            #region ///adding of columns from datagridview2 to dataset dt
+            #region ///adding of columns from datagridview2 to dataset dt2
             foreach (DataGridViewColumn col1 in dataGridView2.Columns)
             {
                 dt2.Columns.Add(col1.Name);
@@ -49,7 +48,7 @@ namespace WindowsApplication1
 
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.Beige;
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridView1.CellValueChanged +=new DataGridViewCellEventHandler(dataGridView1_CellValueChanged);
+            dataGridView1.CellValueChanged +=   new DataGridViewCellEventHandler(dataGridView1_CellValueChanged);
             dataGridView2.CellClick += new DataGridViewCellEventHandler(dataGridView2_CellContentClick);
            
             DGViewName.MaxInputLength = 10;
@@ -86,7 +85,6 @@ namespace WindowsApplication1
 
             dt.Columns["NULL"].DefaultValue         =   false;
             
-            
             DataRow drLocal = null;
             foreach (DataGridViewRow dr in dataGridView1.Rows)
              {
@@ -105,9 +103,7 @@ namespace WindowsApplication1
 
               //  var gd1 = (from a in dataGridView1.Rows.Cast<DataGridViewRow>()
          //select new { Column1 = a.Cells["Column1"].Value.ToString() }).tolist();
-
-                //loop dg1 and save it to datagridview2
-               
+                //loop dg1 and save it to datagridview2               
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -143,7 +139,6 @@ namespace WindowsApplication1
                 {
                     Application.Exit();
                 }
-
             }
         }
 
@@ -166,8 +161,9 @@ namespace WindowsApplication1
             MessageBox.Show(s.ToString());         
         }
 
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
-           string str = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {            
+            string str = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
             if (dataGridView1.Columns[e.ColumnIndex].Name  ==  "DGViewType") {   
                       //str = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
                       if (str == "Date")    {
@@ -185,8 +181,8 @@ namespace WindowsApplication1
                           dataGridView1.CurrentCell.ReadOnly = true;
                           dataGridView1.BeginEdit(true);
                           //dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Red;
-                      }      
-                }
+                      }
+                        }
             else if (dataGridView1.Columns[e.ColumnIndex].Name == "DGViewIndex")
             {
                 if (str == "Ascending" || str == "Descending") {
@@ -201,9 +197,9 @@ namespace WindowsApplication1
                         dt2.Rows.Add(b, a, "Regular", a,"");
                         dataGridView2.DataSource = dt2;
                     }
-
                 }
                  }
+
             else if (dataGridView1.Columns[e.ColumnIndex].Name == "DGViewName") {
 
                   string sub = str.Substring(0);
@@ -215,19 +211,26 @@ namespace WindowsApplication1
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            #region When dataGridView2Button is Pressed in Expressions:
+            //kulang pa ng condition to detect DGView2Expression_btn
             if (dataGridView2.Columns[e.ColumnIndex].Name == "DGView2Expression_btn")
             {
                 //Write here your code...
-               // MessageBox.Show("You Have Selected " + (e.RowIndex + 1).ToString() + " Row Button");
-                ExpressionBuilder expression    =   new ExpressionBuilder();
-                expression.ShowDialog();
+                // MessageBox.Show("You Have Selected " + (e.RowIndex + 1).ToString() + " Row Button");
+                textName = dataGridView2.CurrentRow.Cells[3].FormattedValue.ToString();
+                CallExpression_Builder();
             }
+            else if (dataGridView2.Columns[e.ColumnIndex].Name == "DGView2Filter_btn")
+            {
+                textName = null;
+                CallExpression_Builder();
+            }
+            #endregion
         }
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
- 
+      
+        void CallExpression_Builder() {
+            ExpressionBuilder expression = new ExpressionBuilder();
+            expression.ShowDialog();
+        }     
     } 
  }
